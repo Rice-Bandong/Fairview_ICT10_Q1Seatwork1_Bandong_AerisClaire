@@ -1,16 +1,11 @@
-from pyscript import document, display
+from pyscript import display, document
 
 studentname = "Aeris Bandong"
-
-studentage = 15 
-
+studentage = 15  
 height142 = 142.24  
-
-countries_to_visit = ["Japan", "Korea", "Canada"]
-
+countries_to_visit = ["Japan", "Korea", "Canada"] 
 student_type = False 
-
-my_favorites = {
+my_favorites = { 
     "color": "Blue",
     "car_brand": "Toyota",
     "shoe_size": 6.5,
@@ -20,41 +15,41 @@ my_favorites = {
 favorite_fruits = {"Apple", "Mango", "Rambutan", "Grape", "Orange"} 
 days_of_week = ("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun") 
 
-info_text = f"""
-Name: {studentname}<br>
-Age: {studentage}<br>
-Height: {height142} cm<br>
-Countries to visit: {', '.join(countries_to_visit)}<br>
-New student: {student_type}<br>
-Favorite color: {my_favorites['color']}<br>
-Car brand: {my_favorites['car_brand']}<br>
-Shoe size: {my_favorites['shoe_size']}<br>
-Best friend: {my_favorites['best_friend']}<br>
-Favorite fruits: {', '.join(favorite_fruits)}<br>
-Days of the week: {', '.join(days_of_week)}
-"""
-display(info_text, target="info", append=False)
+display(f"Name: {studentname}", target="name")
+display(f"Age: {studentage}", target="age")
+display(f"Height: {height142} cm", target="height")
+display(f"Countries to visit: {', '.join(countries_to_visit)}", target="countries")
+display(f"New student: {student_type}", target="student")
+display(f"Favorite color: {my_favorites['color']}, car brand: {my_favorites['car_brand']}, shoe size: {my_favorites['shoe_size']}, best friend: {my_favorites['best_friend']}", target="favorites")
+display(f"Favorite fruits: {', '.join(favorite_fruits)}", target="fruits")
+display(f"Days of the week: {', '.join(days_of_week)}", target="days")
 
 def solve(event):
-    n1 = float(document.getElementById("num1").value)
-    n2 = float(document.getElementById("num2").value)
+    for target in ["add", "sub", "mul", "div", "floor", "mod", "exp"]:
+        document.getElementById(target).innerHTML = ""
 
-  
-    add = n1 + n2   
-    sub = n1 - n2
-    mul = n1 * n2
-    div = n1 / n2 if n2 != 0 else "Cannot divide by 0"
-    floor = n1 // n2 if n2 != 0 else "Cannot divide by 0"
-    mod = n1 % n2 if n2 != 0 else "Cannot divide by 0"
-    exp = n1 ** n2
+    text1 = document.getElementById("text1").value
+    text2 = document.getElementById("text2").value
 
-    result_text = f"""
-    {n1} + {n2} = {add}<br>
-    {n1} - {n2} = {sub}<br>
-    {n1} * {n2} = {mul}<br>
-    {n1} / {n2} = {div}<br>
-    {n1} // {n2} = {floor}<br>
-    {n1} % {n2} = {mod}<br>
-    {n1} ** {n2} = {exp}
-    """
-    display(result_text, target="results", append=False)
+    if text1 == "" or text2 == "":
+        display("Please fill in both boxes.", target="add")
+        return
+
+    num1 = float(text1)
+    num2 = float(text2)
+
+    add = num1 + num2
+    sub = num1 - num2
+    mul = num1 * num2
+    divide = num1 / num2 if num2 != 0 else "Cannot divide by 0"
+    floor = num1 // num2 if num2 != 0 else "Cannot divide by 0"
+    mod = num1 % num2 if num2 != 0 else "Cannot divide by 0"
+    exp = num1 ** num2
+
+    display(f"{num1} + {num2} = {add}", target="add")
+    display(f"{num1} - {num2} = {sub}", target="sub")
+    display(f"{num1} * {num2} = {mul}", target="mul")
+    display(f"{num1} / {num2} = {divide}", target="div")
+    display(f"{num1} // {num2} = {floor}", target="floor")
+    display(f"{num1} % {num2} = {mod}", target="mod")
+    display(f"{num1} ** {num2} = {exp}", target="exp")
