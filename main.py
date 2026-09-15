@@ -17,13 +17,13 @@ favorite_fruits = {"Apple", "Mango", "Rambutan", "Grape", "Orange"}
 days_of_week = ("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun") 
 
 info_text = f"""
-Name: {my_name} ({type(my_name).__name__})<br>
-Age: {my_age} ({type(my_age).__name__})<br>
-Height: {height_cm142}cm ({type(height_cm142).__name__})<br>
-Countries: {', '.join(countries_to_visit_list)} ({type(countries_to_visit_list).__name__})<br>
-New Student: {student_type} ({type(student_type).__name__})<br>
-Best Friend: {my_favorites['best_friend']} ({type(my_favorites).__name__})<br>
-Fruits: {', '.join(favorite_fruits)} ({type(favorite_fruits).__name__})<br>
+Name: {my_name} ({type(my_name).__name__})
+Age: {my_age} ({type(my_age).__name__})
+Height: {height_cm142}cm ({type(height_cm142).__name__})
+Countries: {', '.join(countries_to_visit_list)} ({type(countries_to_visit_list).__name__})
+New Student: {student_type} ({type(student_type).__name__})
+Best Friend: {my_favorites['best_friend']} ({type(my_favorites).__name__})
+Fruits: {', '.join(favorite_fruits)} ({type(favorite_fruits).__name__})     
 Days: {len(days_of_week)} ({type(days_of_week).__name__})
 """
 display(info_text, target="info", innerHTML=True)
